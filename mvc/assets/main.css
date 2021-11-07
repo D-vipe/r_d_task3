@@ -35,3 +35,13 @@ body {
 .footer-body p {
     margin-bottom: 0;
 }
+
+
+/* ==== Common styles ==== */
+.form-wrapper {
+    max-width: 600px;
+    margin: 45px auto;
+    padding: 20px 25px;
+    border: 1px solid #e7e7e7;
+    border-radius: 12px;
+}

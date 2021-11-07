@@ -1,7 +1,7 @@
 exports.index = function (request, response) {
     // response.send("Главная страница");
     response.render('main_screen', {
-        title: 'Home',
+        title: 'Auth',
         text1: 'test text'
     });
 };

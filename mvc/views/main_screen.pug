@@ -9,7 +9,9 @@ html(lang="ru")
         link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
         integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous')
         link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
-        link(rel='stylesheet', href='/main.css', type='text/css')
+        link(rel='stylesheet' href='/main.css' type='text/css')
+        script(src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous")
+        script(src="/forms.js")
     body
         div.wrapper
             nav.navbar.navbar-default.navbar-static-top
@@ -40,14 +42,27 @@ html(lang="ru")
                                         li
                                             a(href='/logout') Logout
                             else
-                                li(class=(title == 'Log in') ? 'active' : null)
+                                li(class=(title == 'Auth') ? 'active' : null)
                                     a(href='/login') Авторизация
-                                li(class=(title == 'Register') ? 'active' : null)
-                                    a(href='/register') Регистрация
+                                //- li(class=(title == 'Register') ? 'active' : null)
+                                //-     a(href='/register') Регистрация
 
             .container
                 section.d-flex.align-items-center
-                    p Для продолжения работы необходимо авторизоваться
+
+                    .form-wrapper
+                        p Для продолжения работы необходимо авторизоваться
+
+                        form(id="authForm")
+                            .form-group
+                                label(for="userNameField") Имя Пользователи
+                                input(type="text" name="userName" class="form-control" id="userNameField" required="true")
+                                small#emailHelp.form-text.text-muted Информация передается конфиденциально
+                            .form-group
+                                label(for="userPassField") Пароль
+                                input(type="password" name="userPass" class="form-control" id="userPassField" required="true")
+
+                            button.btn.btn-primary(type="submit") Отправить
 
         .footer
             .container

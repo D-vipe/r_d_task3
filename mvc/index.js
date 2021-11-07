@@ -8,7 +8,7 @@ app.set("view engine", "pug");
 const userRouter = require("./routers/userRouter");
 const homeRouter = require("./routers/homeRouter");
 
-app.use(express.static(__dirname + '/css'));
+app.use(express.static(__dirname + '/assets'));
 app.use("/users", userRouter);
 app.use("/", homeRouter);
 
