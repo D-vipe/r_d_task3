@@ -1,6 +1,9 @@
 const express = require("express");
 const path = require("path");
-const app = express();
+const { v4: uuidv4 } = require('uuid');
+const app = express(),
+  session = require("express-session"),
+  cookieParser = require("cookie-parser");
 
 app.set("views", path.join(__dirname, "/views"));
 app.set("view engine", "pug");
@@ -8,7 +11,19 @@ app.set("view engine", "pug");
 const userRouter = require("./routers/userRouter");
 const homeRouter = require("./routers/homeRouter");
 
-app.use(express.static(__dirname + '/assets'));
+app.use(
+  session({
+    secret: uuidv4(),
+    cookie: { maxAge: 3600000 * 24, userToken: "", userAdmin: false, secure: true },
+    saveUninitialized: false,
+    resave: true,
+  })
+);
+
+app.use(cookieParser());
+
+app.use(express.static(__dirname + "/assets"));
+app.use(express.static(__dirname + '/public'));
 app.use("/users", userRouter);
 app.use("/", homeRouter);
 

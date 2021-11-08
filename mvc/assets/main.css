@@ -45,3 +45,27 @@ body {
     border: 1px solid #e7e7e7;
     border-radius: 12px;
 }
+
+.actions-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.table-action-btn {
+    border: none;
+    background: none;
+    margin: 0 5px;
+    transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -ms-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+}
+
+.table-action-btn.edit-btn:hover svg path {
+    fill: #28a745;
+}
+
+.table-action-btn.delete-btn:hover svg path {
+    fill: #dc3545;
+}
