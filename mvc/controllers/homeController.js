@@ -49,7 +49,7 @@ function getUserDataByToken(userToken) {
     let userData = {};
 
     for (let i = 0; i < Object.keys(users).length; i++) {
-        if (users[i]['token'] == userToken) {
+        if (users[i]['token'].indexOf(userToken) != -1) {
             userData = {
                 'name': users[i]['name'],
                 'age': users[i]['age'],
